@@ -1,0 +1,28 @@
+main: com.bigbade.pyrogenerator.PyroGenerator
+name: PyroGenerator
+author: Big_Bad_E
+version: 2.0.0
+commands:
+    pyrotemplate:
+        description: Set up your firework show.
+        usage: /pyrotemplate
+        permission: pyrogenerator.*
+    pyromove:
+        description: Set the position of your firework show (If no xyz it will be set to your position)
+        usage: /pyromove (x) (y) (z)
+        permission: pyrogenerator.*
+    pyrostart:
+        description: Start your firework show
+        usage: /pyrostart
+        permission: pyrogenerator.*
+    pyrodelete:
+            description: Delete a firework show
+            usage: /pyrodelete
+            permission: pyrogenerator.*
+    pyrocreate:
+            description: Delete a firework show
+            usage: /pyrocreate
+            permission: pyrogenerator.*
+permissions:
+    pyrogenerator.*:
+        description: Allows you to use all PyroGenerator commands.
