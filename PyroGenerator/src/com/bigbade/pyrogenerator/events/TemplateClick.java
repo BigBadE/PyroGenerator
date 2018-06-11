@@ -18,13 +18,15 @@ public class TemplateClick implements Listener {
 	public void onInventoryClick(InventoryClickEvent event) {
 	    String section = PyrotemplateGUI.section;
 		FileConfiguration config = PyroGenerator.getInstance().getConfig();
-		if (event.getInventory().getName().equals("Placeholder")) {
+		if (event.getInventory().getName().equals("Page " + PyrotemplateGUI.page)) {
 			int slot = event.getSlot();
 			int page = PyrotemplateGUI.page;
-			if ((slot == 18) && (page != 1)) {
-				PyrotemplateGUI.page = page - 1;
+			if (slot == 18 && page != 1) {
+                PyrotemplateGUI.setTemplate(page - 1);
+                event.getWhoClicked().openInventory(PyrotemplateGUI.gui);
 			} else if (slot == 26) {
-				PyrotemplateGUI.page = page + 1;
+				PyrotemplateGUI.setTemplate(page + 1);
+                event.getWhoClicked().openInventory(PyrotemplateGUI.gui);
 			} else {
 				FireworkEdit.fireworkEdit(event.getSlot() * page);
 				event.getWhoClicked().openInventory(FireworkEdit.gui);

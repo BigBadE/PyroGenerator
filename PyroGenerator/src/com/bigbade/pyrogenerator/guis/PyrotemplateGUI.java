@@ -20,14 +20,19 @@ public class PyrotemplateGUI
   public static int page = 0;
   public static String section = null;
 
-  public static void setTemplate(int page) {
-    Inventory edit = Bukkit.createInventory(null, 27, "Placeholder");
+  public static void setTemplate(int fpage) {
+      page = fpage;
+      Inventory edit = Bukkit.createInventory(null, 27, "Page " + fpage);
       for(int i = 0; i < 26; i++) {
           if (i == 18 && page != 1) {
-
+              ItemStack back = new ItemStack(Material.PAPER, 1);
+              ItemMeta meta = back.getItemMeta();
+              meta.setDisplayName(ChatColor.GREEN + "Back a Page");
+              back.setItemMeta(meta);
+              edit.setItem(18, back);
           } else {
               PyroGenerator plugin = PyroGenerator.getInstance();
-              int numb = i * page;
+              int numb = i + (page*27);
               String slot = plugin.getConfig().getString(section + "." + numb);
               if (slot != null) {
                   ItemStack item = new ItemStack(Material.FIREWORK);
@@ -111,6 +116,11 @@ public class PyrotemplateGUI
               }
           }
           }
+      ItemStack next = new ItemStack(Material.PAPER, 1);
+      ItemMeta meta = next.getItemMeta();
+      meta.setDisplayName(ChatColor.GREEN + "Next Page");
+      next.setItemMeta(meta);
+      edit.setItem(26, next);
       gui = edit;
   }
 }

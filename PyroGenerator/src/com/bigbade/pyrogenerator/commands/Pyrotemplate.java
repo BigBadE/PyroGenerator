@@ -24,8 +24,8 @@ public class Pyrotemplate implements CommandExecutor {
 			    return true;
             }
 		    PyrotemplateGUI.page = 1;
-			PyrotemplateGUI.setTemplate(1);
 			PyrotemplateGUI.section = section.getName();
+            PyrotemplateGUI.setTemplate(1);
 			((Player) sender).openInventory(PyrotemplateGUI.gui);
 			sender.sendMessage(ChatColor.GRAY + "Opening Firework Template.");
 		}
